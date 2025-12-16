@@ -8,13 +8,11 @@ namespace EnergyApp
     {
         public EnergyRecord NewRecord { get; private set; }
         public double DefaultPrice { get; set; } = 5.0;
-
         public AddRecordWindow()
         {
             InitializeComponent();
             DataContext = this;
         }
-
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             if (!DatePicker.SelectedDate.HasValue ||
@@ -24,7 +22,6 @@ namespace EnergyApp
                 MessageBox.Show("Заполните все поля корректно.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
             double cost = kwh * price;
             NewRecord = new EnergyRecord
             {
@@ -33,7 +30,6 @@ namespace EnergyApp
                 PricePerKwh = price,
                 Cost = cost
             };
-
             DialogResult = true;
             Close();
         }
